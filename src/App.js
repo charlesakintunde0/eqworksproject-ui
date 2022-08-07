@@ -1,5 +1,4 @@
 import './App.css';
-import { BrowserRouter }from "react-router-dom";
 import { useDispatch} from 'react-redux';
 
 import { fetchEventsHourly, fetchEventsDaily,fetchStatsHourly,fetchStatsDaily, fetchPoi,fetchStatsPoi,fetchEventsPoi} from './actions/index'

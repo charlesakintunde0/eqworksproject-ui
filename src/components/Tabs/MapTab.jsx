@@ -11,13 +11,9 @@ import {
     FormControl,
     InputLabel,
     Select,
-    Typography
   } from '@mui/material';
   import { makeStyles } from '@mui/styles';
   import moment from 'moment';
-
-
-  import { Chart } from '../Chart'
   import Map from '../Map/Map';
 
   const MapTabStyles = makeStyles(() =>

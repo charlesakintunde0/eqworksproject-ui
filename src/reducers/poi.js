@@ -1,7 +1,7 @@
 import {  FETCH_POI } from "../constants/actionTypes";
 
 
-export default (poi = [], action) => {
+export const poi = (poi = [], action) => {
     switch (action.type) {
         case FETCH_POI:
             return action.payload

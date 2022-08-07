@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {
   Box,
   createStyles,
@@ -72,7 +72,7 @@ const TabBar = () => {
   
   return (
     <>
-  {data.length === 0 ? <LoadingModal/> : ''}
+  {data.length < 0 ? <LoadingModal/> : ''}
      <Box className={classes.tabsContainer}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
