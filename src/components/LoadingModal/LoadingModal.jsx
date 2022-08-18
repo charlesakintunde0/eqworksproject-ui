@@ -9,7 +9,7 @@ const LoadingModal = () => {
   const data = useSelector(state => state.poi)
   console.log(data.length)
   return (
-    <div className={`${data.length === 0 ? 'hide' : ''}`}>
+    <div>
           <div className={`modal_mask`}>
         <div className='modal_panel'>
         <CircularProgress />  

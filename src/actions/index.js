@@ -1,4 +1,4 @@
-import { FETCH_EVENTS_PER_HOUR, FETCH_EVENTS_PER_DAY,FETCH_STATS_PER_HOUR,FETCH_STATS_PER_DAY,FETCH_POI, FETCH_STATS_POI, FETCH_EVENTS_POI } from "../constants/actionTypes";
+import { FETCH_EVENTS_PER_HOUR, FETCH_EVENTS_PER_DAY,FETCH_STATS_PER_HOUR,FETCH_STATS_PER_DAY,FETCH_POI, FETCH_STATS_POI, FETCH_EVENTS_POI, NOTIFICATION } from "../constants/actionTypes";
 
 
 import * as api from "../api";
@@ -10,7 +10,8 @@ export const fetchEventsHourly = () => async(dispatch) => {
 
         dispatch({type: FETCH_EVENTS_PER_HOUR, payload: data})
     }catch (error) {
-        console.log(error.message)
+        console.log(error.request.response)
+       
     }
 }
 
@@ -19,7 +20,7 @@ export const fetchEventsDaily = () => async(dispatch) => {
         const {data} = await api.fetchEventsDaily()
         dispatch({type: FETCH_EVENTS_PER_DAY, payload: data})
     }catch (error) {
-        console.log(error.message)
+        
     }
 }
 
@@ -28,7 +29,7 @@ export const fetchStatsHourly = () => async(dispatch) => {
         const {data} = await api.fetchStatsHourly()
         dispatch({type: FETCH_STATS_PER_HOUR, payload: data})
     }catch (error) {
-        console.log(error.message)
+        
     }
 }
 export const fetchStatsDaily = () => async(dispatch) => {
@@ -37,7 +38,7 @@ export const fetchStatsDaily = () => async(dispatch) => {
 
         dispatch({type: FETCH_STATS_PER_DAY, payload: data})
     }catch (error) {
-        console.log(error.message)
+       
     }
 }
 
@@ -48,7 +49,7 @@ export const fetchPoi = () => async(dispatch) => {
 
         dispatch({type: FETCH_POI, payload: data})
     }catch (error) {
-        console.log(error.message)
+        
     }
 }
 
@@ -58,7 +59,7 @@ export const fetchStatsPoi = () => async(dispatch) => {
 
         dispatch({type: FETCH_STATS_POI, payload: data})
     }catch (error) {
-        console.log(error.message)
+      
     }
 }
 
@@ -68,6 +69,6 @@ export const fetchEventsPoi = () => async(dispatch) => {
 
         dispatch({type: FETCH_EVENTS_POI, payload: data})
     }catch (error) {
-        console.log(error.message)
+        dispatch({type: NOTIFICATION, payload: {error:error.request.response, alertType: 'error', showNotification: true}})
     }
 }

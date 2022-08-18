@@ -6,8 +6,9 @@ import {
   Typography
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-
-
+import Notification from './Notification/Notification';
+import { useSelector,useDispatch } from 'react-redux'
+import LoadingModal from './LoadingModal/LoadingModal';
 
 const AppBarStyles = makeStyles(() =>
   createStyles({
@@ -31,14 +32,20 @@ const AppBarStyles = makeStyles(() =>
 
 const AppBarHeader = () => {
     const classes = AppBarStyles()
+    const poi = useSelector(state => state.poi)
   return (
+  <>
    <Box className={classes.appBarBox}>
+   {poi.length === 0 ? <LoadingModal/> : ''}
+
       <AppBar className={classes.appBar} color="primary">
-        <Typography className={classes.headerText} variant="h1">
+        <Typography className={classes.headerText} variant="subtitle1">
+  
           EQWORKS VISUALIZATION PROJECT
         </Typography>
       </AppBar>
    </Box>
+   </>
   )
 }
 

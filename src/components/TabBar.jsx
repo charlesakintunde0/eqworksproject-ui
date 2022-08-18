@@ -16,6 +16,7 @@ import MapTab from './Tabs/MapTab';
 import DataTables from './Tabs/DataTables';
 
 import LoadingModal from './LoadingModal/LoadingModal'
+import Notification from './Notification/Notification';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -60,6 +61,7 @@ const TabsStyles = makeStyles(() =>
         top: '80px',
         width: '100%'
     },
+  
   })
 );
 const TabBar = () => {
@@ -75,12 +77,14 @@ const TabBar = () => {
   {data.length < 0 ? <LoadingModal/> : ''}
      <Box className={classes.tabsContainer}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs value={value} className={classes.tabs} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Charts" {...a11yProps(0)} />
           <Tab label="Datatables" {...a11yProps(1)} />
           <Tab label="Maps" {...a11yProps(2)} />
         </Tabs>
       </Box>
+
+       <Notification/>
       <TabPanel value={value} index={0}>
       <ChartTab/>
       </TabPanel>
