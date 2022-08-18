@@ -84,7 +84,7 @@ const TabBar = () => {
         </Tabs>
       </Box>
 
-       <Notification/>
+       {/* <Notification/> */}
       <TabPanel value={value} index={0}>
       <ChartTab/>
       </TabPanel>
