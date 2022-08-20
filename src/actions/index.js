@@ -70,5 +70,6 @@ export const fetchEventsPoi = () => async(dispatch) => {
         dispatch({type: FETCH_EVENTS_POI, payload: data})
     }catch (error) {
         dispatch({type: NOTIFICATION, payload: {error:error.request.response, alertType: 'error', showNotification: true}})
+        console.log(error)
     }
 }

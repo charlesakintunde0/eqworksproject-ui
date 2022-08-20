@@ -29,18 +29,18 @@ const Notification = () => {
 
    if (notification?.showNotification === true) {
       setTimeout(() => {
-        dispatch({type: NOTIFICATION, payload: {error:undefined,showNotification: false,alertType: 'error'}})
+        dispatch({type: NOTIFICATION, payload: {showNotification: false,alertType: 'error'}})
       },5000)
    }
 
-  
+  console.log(notification.error,notification.showNotification)
     
   return (
     <>
     <Box className={classes.container}>
      <Slide direction="left" in={notification?.showNotification}  mountOnEnter unmountOnExit>
      <Alert variant="filled" severity={notification?.alertType }>
-        {notification?.error}
+        You request is now being limited (Too many request, system  will reboot after 60 secs) 
         </Alert>
      </Slide>
     </Box>
